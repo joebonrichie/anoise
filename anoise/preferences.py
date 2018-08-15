@@ -19,8 +19,8 @@
 import gi, os, shutil, webbrowser, subprocess
 from datetime import datetime, timedelta
 gi.require_version('Gtk', '3.0')
-gi.require_version('WebKit2', '4.0')
-from gi.repository import Gtk, WebKit2
+gi.require_version('WebKit', '3.0')
+from gi.repository import Gtk, WebKit
 # i18n
 import gettext
 gettext.textdomain('anoise')
@@ -106,7 +106,7 @@ class Preferences:
     
     def on_btn_show_noises_clicked(self, widget, data=None):
         self.btn_noises.hide()
-        web_content = WebKit2.WebView()
+        web_content = WebKit.WebView()
         settings = web_content.get_settings()
         settings.set_property('enable-default-context-menu', False)
         web_content.set_settings(settings)
